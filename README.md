@@ -16,3 +16,6 @@ A community clipping module for Caffeinated.
 8. Now goto console, and paste `CAFFEINATED.addRepo("https://casterlabs.github.io/Clip-Module/")` and press `Enter`
 9. You will see the module appear at the bottom of settings, you can close the inspect window now
 10. The default settings should be fine, however if you changed the password or port change them in there. (Leave password blank if its off in OBS)
+
+## Showcase
+https://youtu.be/DZcOWYy6iBc
