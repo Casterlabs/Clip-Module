@@ -1,0 +1,18 @@
+{
+    "supported": [
+        "*"
+    ],
+    "unsupported": [],
+    "version": "1.0.0",
+    "name": "Community Clipping",
+    "overlays": [
+        "module.js",
+        "obs-websocket.js"
+    ],
+    "required": [
+        {
+            "namespace": "community_clips",
+            "id": "community_clips"
+        }
+    ]
+}
