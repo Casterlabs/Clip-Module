@@ -7,6 +7,7 @@ MODULES.moduleClasses["community_clips"] = class {
         this.type = "settings";
         this.id = id;
         this.lastclip = 0;
+        this.obs = new OBSWebSocket();
 
         const INTERVAL = 10 * 1000;
         const instance = this;
@@ -20,6 +21,11 @@ MODULES.moduleClasses["community_clips"] = class {
                 }
             }
         });
+
+        this.obs.on("ConnectionClosed", () => {
+            console.log("OBS: Could not connect, retrying in 2s");
+            setTimeout(() => instance.connect(), 2000); // Auto reconnect
+        });
     }
 
     getDataToStore() {
@@ -27,21 +33,27 @@ MODULES.moduleClasses["community_clips"] = class {
     }
 
     init() {
-        this.onSettingsUpdate();
+        this.connect();
     }
 
     onSettingsUpdate() {
-        if (this.obs) this.obs.disconnect();
+        this.connect();
+    }
+
+    connect() {
+        try {
+            this.obs.disconnect();
+        } catch (ignored) { }
 
         const instance = this;
 
-        this.obs = new OBSWebSocket();
         this.obs.connect({
             address: instance.settings.address,
             password: instance.settings.password
         }).then(() => {
+            console.log("OBS: Connected");
             instance.obs.send("StartReplayBuffer");
-        });
+        }).catch((ignored) => { });
     }
 
     settingsDisplay = {
