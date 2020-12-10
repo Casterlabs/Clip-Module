@@ -3,9 +3,13 @@
         "*"
     ],
     "unsupported": [],
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "Community Clipping",
     "overlays": [
+        "module.js",
+        "obs-websocket.js"
+    ],
+    "scripts": [
         "module.js",
         "obs-websocket.js"
     ],
