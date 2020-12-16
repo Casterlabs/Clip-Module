@@ -17,5 +17,7 @@ A community clipping module for Caffeinated.
 9. You will see the module appear at the bottom of settings, you can close the inspect window now
 10. The default settings should be fine, however if you changed the password or port change them in there. (Leave password blank if its off in OBS)
 
+**MAKE SURE TO ENABLE THE REPLAY BUFFER IN OBS SETTINGS**
+
 ## Showcase
 https://youtu.be/DZcOWYy6iBc
